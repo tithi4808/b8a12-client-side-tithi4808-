@@ -7,8 +7,6 @@ const Navbar = () => {
     return (
         <div>
             <NavbarWithoutLogin></NavbarWithoutLogin>
-            <NavbarEmployeeLogin></NavbarEmployeeLogin>
-            <NavbarAdminLogin></NavbarAdminLogin>
         </div>
     );
 };

@@ -1,9 +1,10 @@
 import React from 'react';
+import HomeWithoutLogin from '../../WithoutLogin/Pages/HomePageWithoutLogin/HomeWithoutLogin/HomeWithoutLogin';
 
 const Home = () => {
     return (
         <div>
-            this is home
+            <HomeWithoutLogin></HomeWithoutLogin>
         </div>
     );
 };

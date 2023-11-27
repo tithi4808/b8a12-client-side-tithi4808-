@@ -16,7 +16,7 @@ const NavbarWithoutLogin = () => {
 
          </>
     return (
-        <div className='shadow-lg mb-20 '>
+        <div className='shadow-lg '>
             <div className="navbar rounded-xl bg-base-100">
   <div className="navbar-start">
     <div className="dropdown">

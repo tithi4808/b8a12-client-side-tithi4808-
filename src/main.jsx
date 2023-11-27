@@ -23,6 +23,7 @@ import CustomRequestList from './assets/Components/AdminLogin/Pages/CustomReques
 import MyEmployeeList from './assets/Components/AdminLogin/Pages/MyEmployeeList/MyEmployeeList.jsx';
 import AddAnEmployee from './assets/Components/AdminLogin/Pages/AddAnEmployee/AddAnEmployee.jsx';
 import AdminProfile from './assets/Components/AdminLogin/Pages/AdminProfile/AdminProfile.jsx';
+import PaymentPage from './assets/Components/Shared/Pages/PaymentPage/PaymentPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
       {
         path:"/AdminProfile",
         element:<AdminProfile></AdminProfile>
+      },
+      {
+        path:"/PaymentPage",
+        element:<PaymentPage></PaymentPage>
       },
     ]
   },
