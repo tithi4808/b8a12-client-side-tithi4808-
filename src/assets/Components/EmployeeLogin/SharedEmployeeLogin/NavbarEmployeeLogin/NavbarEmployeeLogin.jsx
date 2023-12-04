@@ -1,10 +1,54 @@
 
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../AuthProvider.jsx/AuthProvider';
 
 
 
 
 const NavbarEmployeeLogin = () => {
+
+  const {logout,User}=useContext(AuthContext)
+  const[logo,setlogo]=useState("")
+  const[user,setuser]=useState({})
+  const currentemail=User.email
+  useEffect(()=>{
+   if(User?.email){
+    fetch('http://localhost:5000/fullteams')
+    .then(res=>res.json())
+    .then(data=>{
+      const email=data.find(id=>id.email===User.email)
+      setlogo(email?.email)
+    })
+  }},[]
+   )
+
+   useEffect(()=>{
+    if(User?.email){
+     fetch('http://localhost:5000/fullteams')
+     .then(res=>res.json())
+     .then(data=>{
+       const email=data.find(id=>id.email===User.email)
+       setuser(email)
+     })
+   }},[]
+    )
+
+    console.log(user)
+
+    
+
+  
+
+  const handlelogout=()=>{
+      logout()
+      .then(result=>{
+          console.log(result.user)
+      })
+      .catch(error=>{
+          console.log(error.message)
+      })
+  }
 
 
     const links=<>
@@ -32,9 +76,16 @@ const NavbarEmployeeLogin = () => {
           </ul>
       </ul>
     </div>
-    <div >
+    {/* <div >
+        <Link to='/home'><img className='w-48 h-20' src="https://i.ibb.co/Vt2JgQ6/Navlogojpg.jpg" alt="" /></Link>
+    </div> */}
+    {
+      currentemail==logo? <div >
+      <Link to='/home'><img className='w-48 h-20' src="https://i.ibb.co/zFq2k4M/images-1.png" alt="" /></Link>
+  </div>:<div >
         <Link to='/home'><img className='w-48 h-20' src="https://i.ibb.co/Vt2JgQ6/Navlogojpg.jpg" alt="" /></Link>
     </div>
+    }
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 font-semibold text-base">
@@ -45,13 +96,24 @@ const NavbarEmployeeLogin = () => {
 
   <div className="navbar-end ">
 
-    <div className='flex space-x-3'>
-    <p>User Name</p>
-    <Link className="btn w-20 text-lg">Logout</Link>
+    <div>
+      {
+        User? <div>
+          <div  className='flex gap-2'><div className='flex gap-2'>
+       <div>
+       <div className='flex justify-center items-center'><img className='w-8 h-8 rounded-full' src={user.image} alt="" /></div>
+         
+
+         <p className='pt-2'>{user.name}</p>
+       </div>
+        
+        </div><div><Link onClick={handlelogout} className='btn'>LogOut</Link></div></div></div>
+        :<div><Link className='btn'>Login</Link></div>
+      }
     </div>
-  </div>
   
 </div>
+        </div>
         </div>
     );
 };

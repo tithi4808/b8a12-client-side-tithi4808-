@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { toast,ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2'
 
-const CustomRequestList = () => {
+const Allproducts = () => {
     const [customRequests, setCustomRequests] = useState([]);
 
     useEffect(() => {
@@ -98,15 +98,15 @@ const CustomRequestList = () => {
 
     return (
         <div className='mb-20'>
-            <h2>Custom Requests</h2>
+            <h2 className='text-4xl font-bold mb-10 text-center'>Custom Requests</h2>
             
-          <div className='grid grid-cols-3 gap-10'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
              
-          {customRequests.map(data => (
+          {customRequests.slice(0,3).map(data => (
                  <div key={data._id}>
 
 
-                 <div className="card w-96 bg-base-100 shadow-xl">
+                 <div className="card w-80 bg-base-100 shadow-xl">
                    
                    <div className="card-body">
                     <img className='h-36 w-36' src={data.Asset_image} alt="" />
@@ -134,4 +134,4 @@ const CustomRequestList = () => {
     );
 };
 
-export default CustomRequestList;
+export default Allproducts;

@@ -24,11 +24,15 @@ import MyEmployeeList from './assets/Components/AdminLogin/Pages/MyEmployeeList/
 import AddAnEmployee from './assets/Components/AdminLogin/Pages/AddAnEmployee/AddAnEmployee.jsx';
 import AdminProfile from './assets/Components/AdminLogin/Pages/AdminProfile/AdminProfile.jsx';
 import PaymentPage from './assets/Components/Shared/Pages/PaymentPage/PaymentPage.jsx';
+import Authprovider from './assets/Components/AuthProvider.jsx/AuthProvider.jsx';
+import PrivateRoute from './assets/Components/PrivateRoute/PrivateRoute.jsx';
+import AdminRoute from './assets/Components/AdminRoute/AdminRoute.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Roots></Roots>,
+    
     children:[
       {
         path:"/",
@@ -48,54 +52,57 @@ const router = createBrowserRouter([
       },
       {
         path:"/MyAssets",
-        element:<MyAsset></MyAsset>
+        element:<PrivateRoute><MyAsset></MyAsset></PrivateRoute>,
+        loader:()=>fetch('http://localhost:5000/requestassets')
       },
       {
         path:"/MyTeam",
-        element:<MyTeam></MyTeam>
+        element:<PrivateRoute><MyTeam></MyTeam></PrivateRoute>,
+        loader:()=>fetch('http://localhost:5000/fullteams')
       },
       {
         path:"/RequestForAnAsset",
-        element:<RequestForAnAsset></RequestForAnAsset>
+        element:<PrivateRoute><RequestForAnAsset></RequestForAnAsset></PrivateRoute>
       },
       {
         path:"/MakeCustomRequest",
-        element:<MakeCustomRequest></MakeCustomRequest>
+        element:<PrivateRoute><MakeCustomRequest></MakeCustomRequest></PrivateRoute>
       },
       {
         path:"/EmployeeProfile",
-        element:<EmployeeProfile></EmployeeProfile>
+        element:<PrivateRoute><EmployeeProfile></EmployeeProfile></PrivateRoute>
       },
       {
         path:"/AssetList",
-        element:<AssetList></AssetList>
+        element:<AdminRoute><AssetList></AssetList></AdminRoute>,
+        loader:()=>fetch('http://localhost:5000/allassets')
       },
       {
         path:"/AddAnAsset",
-        element:<AddAsset></AddAsset>
+        element:<AdminRoute><AddAsset></AddAsset></AdminRoute>
       },{
         path:"/AllRequest",
-        element:<AllRequest></AllRequest>
+        element:<AdminRoute><AllRequest></AllRequest></AdminRoute>
       },
       {
         path:"/CustomRequestList",
-        element:<CustomRequestList></CustomRequestList>
+        element:<AdminRoute><CustomRequestList></CustomRequestList></AdminRoute>
       },
       {
         path:"/MyEmployeeList",
-        element:<MyEmployeeList></MyEmployeeList>
+        element:<AdminRoute><MyEmployeeList></MyEmployeeList></AdminRoute>
       },
       {
         path:"/AddAnEmployee",
-        element:<AddAnEmployee></AddAnEmployee>
+        element:<AdminRoute><AddAnEmployee></AddAnEmployee></AdminRoute>
       },
       {
         path:"/AdminProfile",
-        element:<AdminProfile></AdminProfile>
+        element:<AdminRoute><AdminProfile></AdminProfile></AdminRoute>
       },
       {
-        path:"/PaymentPage",
-        element:<PaymentPage></PaymentPage>
+        path:"/payment/:packageType",
+        element:<AdminRoute><PaymentPage></PaymentPage></AdminRoute>
       },
     ]
   },
@@ -103,6 +110,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Authprovider><RouterProvider router={router} /></Authprovider>
   </React.StrictMode>,
 )

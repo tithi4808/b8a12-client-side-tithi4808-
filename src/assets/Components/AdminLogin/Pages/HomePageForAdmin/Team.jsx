@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../AuthProvider.jsx/AuthProvider';
 import Swal from 'sweetalert2'
 
-const MyEmployeeList = () => {
+const Team = () => {
     const {User}=useContext(AuthContext)
     console.log(User?.email)
     const useremail=User?.email
@@ -59,12 +59,14 @@ const MyEmployeeList = () => {
     };
 
     return (
-        <div className='grid grid-cols-3 gap-10 my-10'>
-            
-            {employees.map(employee => (
+        <div className='my-20'>
+             <h3 className='text-4xl font-bold text-center mb-20'>My employee</h3>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
+           
+            {employees.slice(0,3).map(employee => (
                 <div key={employee._id} className="employee-card">
 
-<div className="card w-96 bg-base-100 shadow-xl">
+<div className="card w-80 bg-base-100 shadow-xl">
                    
                    <div className="card-body">
                    <img src={employee.image} alt={`${employee.name}'s profile`} />
@@ -83,7 +85,8 @@ const MyEmployeeList = () => {
                 
             
         </div>
+        </div>
     );
 };
 
-export default MyEmployeeList;
+export default Team;
