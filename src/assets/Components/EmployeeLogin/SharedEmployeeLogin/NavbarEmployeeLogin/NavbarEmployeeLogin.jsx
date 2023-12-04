@@ -14,10 +14,10 @@ const NavbarEmployeeLogin = () => {
   const currentemail=User.email
   useEffect(()=>{
    if(User?.email){
-    fetch('http://localhost:5000/fullteams')
+    fetch('https://b8a12-server-side-tithi4808.vercel.app/fullteams')
     .then(res=>res.json())
     .then(data=>{
-      const email=data.find(id=>id.email===User.email)
+      const email=data.find(id=>id?.email===User?.email)
       setlogo(email?.email)
     })
   }},[]
@@ -25,16 +25,16 @@ const NavbarEmployeeLogin = () => {
 
    useEffect(()=>{
     if(User?.email){
-     fetch('http://localhost:5000/fullteams')
+     fetch('https://b8a12-server-side-tithi4808.vercel.app/fullteams')
      .then(res=>res.json())
      .then(data=>{
-       const email=data.find(id=>id.email===User.email)
+       const email=data.find(id=>id.email===User?.email)
        setuser(email)
      })
    }},[]
     )
 
-    console.log(user)
+    
 
     
 
@@ -81,9 +81,9 @@ const NavbarEmployeeLogin = () => {
     </div> */}
     {
       currentemail==logo? <div >
-      <Link to='/home'><img className='w-48 h-20' src="https://i.ibb.co/zFq2k4M/images-1.png" alt="" /></Link>
+      <Link to='/home'><img className='w-48 h-20' src="https://i.postimg.cc/VvyYDyBb/images-1.png" alt="" /></Link>
   </div>:<div >
-        <Link to='/home'><img className='w-48 h-20' src="https://i.ibb.co/Vt2JgQ6/Navlogojpg.jpg" alt="" /></Link>
+        <Link to='/home'><img className='w-48 h-20' src="https://i.postimg.cc/K8jdkqtX/Navlogojpg-1.jpg" alt="" /></Link>
     </div>
     }
   </div>
@@ -101,10 +101,10 @@ const NavbarEmployeeLogin = () => {
         User? <div>
           <div  className='flex gap-2'><div className='flex gap-2'>
        <div>
-       <div className='flex justify-center items-center'><img className='w-8 h-8 rounded-full' src={user.image} alt="" /></div>
+       <div className='flex justify-center items-center'><img className='w-8 h-8 rounded-full' src={user?.image} alt="" /></div>
          
 
-         <p className='pt-2'>{user.name}</p>
+         <p className='pt-2'>{user?.name}</p>
        </div>
         
         </div><div><Link onClick={handlelogout} className='btn'>LogOut</Link></div></div></div>

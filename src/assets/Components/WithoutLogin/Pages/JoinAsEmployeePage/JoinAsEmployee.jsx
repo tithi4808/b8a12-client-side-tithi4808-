@@ -87,7 +87,7 @@ const JoinAsEmployee = () => {
         })
 
           const emloyees={name,email,DateOFBirth,role,image}
-    fetch('http://localhost:5000/allemployees',{
+    fetch('https://b8a12-server-side-tithi4808.vercel.app/allemployees',{
       method: "POST",
       headers: {
           "Content-Type": "application/json",
@@ -117,9 +117,7 @@ const JoinAsEmployee = () => {
       }
     return (
         <div className='grid lg:grid-cols-2 lg:mt-10'>
-            <div className='flex justify-center items-center'>
-    <img className='' src="https://i.ibb.co/8X9BzYN/Top-60-Employee-Engagement-image43-1200x720.png" alt="" />
-</div>
+            
         <div className="hero lg:mt-10 min-h-screen lg:max-w-full bg-base-100">
 <div className="hero-content flex-col">
 <div className="text-center text-4xl font-bold ">

@@ -7,7 +7,7 @@ const Pichart = () => {
   const [totalNonReturnable, setTotalNonReturnable] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allassets")
+    fetch("https://b8a12-server-side-tithi4808.vercel.app/allassets")
       .then((res) => res.json())
       .then((assets) => {
         const returnableItems = assets.filter(

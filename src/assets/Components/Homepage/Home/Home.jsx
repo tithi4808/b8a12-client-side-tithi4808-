@@ -12,7 +12,7 @@ const Home = () => {
     const { User } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch("http://localhost:5000/fullteams")
+        fetch("https://b8a12-server-side-tithi4808.vercel.app/fullteams")
             .then(res => res.json())
             .then(data => {
                 setUser(data); // Store the fetched data in the state

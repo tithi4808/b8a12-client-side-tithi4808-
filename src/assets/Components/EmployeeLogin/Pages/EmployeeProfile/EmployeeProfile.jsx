@@ -9,7 +9,7 @@ const EmployeeProfile = () => {
 
     useEffect(() => {
         if (User?.email) {
-            fetch('http://localhost:5000/fullteams')
+            fetch('https://b8a12-server-side-tithi4808.vercel.app/fullteams')
                 .then(res => res.json())
                 .then(data => {
                     const userInfo = data.find(id => id.email === User.email);
@@ -23,7 +23,7 @@ const EmployeeProfile = () => {
 
     const handleUpdate = () => {
         // Assuming you have an API endpoint for updating user information with PATCH method
-        fetch(`http://localhost:5000/fullteams/${User?.email}`, {
+        fetch(`https://b8a12-server-side-tithi4808.vercel.app/fullteams/${User?.email}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

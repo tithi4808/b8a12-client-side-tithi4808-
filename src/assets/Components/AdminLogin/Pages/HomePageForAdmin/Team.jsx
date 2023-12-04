@@ -12,7 +12,7 @@ const Team = () => {
     useEffect(() => {
         if(User?.email)
     {
-        fetch('http://localhost:5000/fullteams')
+        fetch('https://b8a12-server-side-tithi4808.vercel.app/fullteams')
             .then(res => res.json())
             .then(data => {
                 if(User){
@@ -25,7 +25,7 @@ const Team = () => {
 
     const removeFromTeam = (employeeId) => {
         
-        fetch(`http://localhost:5000/fullteams/${employeeId}`,{
+        fetch(`https://b8a12-server-side-tithi4808.vercel.app/fullteams/${employeeId}`,{
             method: "DELETE"
         })
         .then(res=>res.json())

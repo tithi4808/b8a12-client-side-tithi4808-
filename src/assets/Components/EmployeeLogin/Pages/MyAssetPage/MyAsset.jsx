@@ -14,7 +14,7 @@ const MyAsset = () => {
   useEffect(()=>{
     if(User?.email)
     {
-      fetch('http://localhost:5000/fullteams')
+      fetch('https://b8a12-server-side-tithi4808.vercel.app/fullteams')
     .then(res=>res.json())
     .then(data=>{
       
@@ -41,7 +41,7 @@ const MyAsset = () => {
     
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/requestassets'); 
+        const response = await fetch('https://b8a12-server-side-tithi4808.vercel.app/requestassets'); 
         const data = await response.json();
 
         

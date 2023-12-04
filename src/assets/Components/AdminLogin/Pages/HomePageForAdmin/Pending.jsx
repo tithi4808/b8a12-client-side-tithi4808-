@@ -4,7 +4,7 @@ const Pendings = () => {
     const [pending,setpending]=useState([])
     useEffect(() => {
        
-        fetch('http://localhost:5000/requestassets')
+        fetch('https://b8a12-server-side-tithi4808.vercel.app/requestassets')
             .then(res => res.json())
             .then(data => {
                 const customRequestsData = data.filter(request => request.request_status == "pending");

@@ -53,12 +53,12 @@ const router = createBrowserRouter([
       {
         path:"/MyAssets",
         element:<PrivateRoute><MyAsset></MyAsset></PrivateRoute>,
-        loader:()=>fetch('http://localhost:5000/requestassets')
+        loader:()=>fetch('https://b8a12-server-side-tithi4808.vercel.app/requestassets')
       },
       {
         path:"/MyTeam",
         element:<PrivateRoute><MyTeam></MyTeam></PrivateRoute>,
-        loader:()=>fetch('http://localhost:5000/fullteams')
+        loader:()=>fetch('https://b8a12-server-side-tithi4808.vercel.app/fullteams')
       },
       {
         path:"/RequestForAnAsset",
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
       {
         path:"/AssetList",
         element:<AdminRoute><AssetList></AssetList></AdminRoute>,
-        loader:()=>fetch('http://localhost:5000/allassets')
+        loader:()=>fetch('https://b8a12-server-side-tithi4808.vercel.app/allassets')
       },
       {
         path:"/AddAnAsset",

@@ -30,7 +30,7 @@ const NavbarWithoutLogin = () => {
       </ul>
     </div>
     <div >
-        <Link to='/home'><img className='w-48 h-20' src="https://i.ibb.co/Vt2JgQ6/Navlogojpg.jpg" alt="" /></Link>
+        <Link to='/home'><img className='w-48 h-20' src="https://i.postimg.cc/K8jdkqtX/Navlogojpg-1.jpg" alt="" /></Link>
     </div>
   </div>
   <div className="navbar-center hidden lg:flex">

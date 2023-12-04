@@ -9,7 +9,7 @@ const AllRequest = () => {
 
    useEffect(() => {
     
-    fetch('http://localhost:5000/requestassets')
+    fetch('https://b8a12-server-side-tithi4808.vercel.app/requestassets')
         .then(res => res.json())
         .then(data => {
             const customRequestsData = data.filter(request =>   request.request_status !== "approved");
@@ -31,7 +31,7 @@ const handleApprove = (id, Product_Name, Asset_Type, requestDate) => {
         request_status
     };
 
-    fetch(`http://localhost:5000/requestassets/${id}`, {
+    fetch(`https://b8a12-server-side-tithi4808.vercel.app/requestassets/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -41,7 +41,7 @@ const handleApprove = (id, Product_Name, Asset_Type, requestDate) => {
     .then(res => res.json())
     .then(updatedData => {
         if (updatedData.request_status === 'approved') {
-            fetch('http://localhost:5000/requestassets')
+            fetch('https://b8a12-server-side-tithi4808.vercel.app/requestassets')
                 .then(res => res.json())
                 .then(data => {
                     const customRequestsData = data.filter(request => request.request_status !== "approved");
@@ -67,7 +67,7 @@ const handleApprove = (id, Product_Name, Asset_Type, requestDate) => {
 
    const handleReject=(_id)=>{
 
-    fetch(`http://localhost:5000/requestassets/${_id}`,{
+    fetch(`https://b8a12-server-side-tithi4808.vercel.app/requestassets/${_id}`,{
         method: "DELETE"
     })
     .then(res=>res.json())
@@ -165,7 +165,7 @@ export default AllRequest;
 
 
 
-// fetch('http://localhost:5000/requestassets')
+// fetch('https://b8a12-server-side-tithi4808.vercel.app/requestassets')
 //                 .then(res => res.json())
 //                 .then(data => {
                    
@@ -188,7 +188,7 @@ export default AllRequest;
 //         Aproval_Date,
 //     };
 
-//     fetch(`http://localhost:5000/requestassets/${id}`, {
+//     fetch(`https://b8a12-server-side-tithi4808.vercel.app/requestassets/${id}`, {
 //         method: "PUT",
 //         headers: {
 //             "Content-Type": "application/json",
@@ -200,7 +200,7 @@ export default AllRequest;
 //         if (updatedData.acknowledged) {
             
             
-//  fetch('http://localhost:5000/requestassets')
+//  fetch('https://b8a12-server-side-tithi4808.vercel.app/requestassets')
 //                 .then(res => res.json())
 //                 .then(data => {
                    

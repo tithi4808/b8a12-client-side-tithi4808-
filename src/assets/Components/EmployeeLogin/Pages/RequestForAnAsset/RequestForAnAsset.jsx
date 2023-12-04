@@ -16,7 +16,7 @@ const RequestForAnAsset = () => {
     
     const currentemail=User?.email
     useEffect(()=>{
-      fetch('http://localhost:5000/fullteams')
+      fetch('https://b8a12-server-side-tithi4808.vercel.app/fullteams')
       .then(res=>res.json())
       .then(data=>{
         const email=data.find(id=>id?.email==User?.email)
@@ -32,7 +32,7 @@ const RequestForAnAsset = () => {
 
     useEffect(() => {
         
-        const url = new URL('http://localhost:5000/allassets');
+        const url = new URL('https://b8a12-server-side-tithi4808.vercel.app/allassets');
         url.searchParams.append('searchTerm', searchTerm);
         url.searchParams.append('availability', availabilityFilter);
         url.searchParams.append('assetType', assetTypeFilter);
@@ -62,7 +62,7 @@ const RequestForAnAsset = () => {
 
             const data={Product_Name,Asset_Type,Email,name,requestDate,additionalnote,status,request,request_status}
 
-            fetch('http://localhost:5000/requestassets',{
+            fetch('https://b8a12-server-side-tithi4808.vercel.app/requestassets',{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

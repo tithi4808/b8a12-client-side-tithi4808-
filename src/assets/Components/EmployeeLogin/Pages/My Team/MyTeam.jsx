@@ -12,7 +12,7 @@ const MyTeam = () => {
     
   const currentemail=User?.email
   useEffect(()=>{
-    fetch('http://localhost:5000/fullteams')
+    fetch('https://b8a12-server-side-tithi4808.vercel.app/fullteams')
     .then(res=>res.json())
     .then(data=>{
       const email=data.find(id=>id.email===User.email)
@@ -24,7 +24,7 @@ const MyTeam = () => {
     const fetchUpcomingBirthdays = async () => {
       try {
         if (User?.email) {
-          const response = await fetch('http://localhost:5000/fullteams');
+          const response = await fetch('https://b8a12-server-side-tithi4808.vercel.app/fullteams');
           const data = await response.json();
 
           const currentMonthBirthdays = data.filter((member) => {

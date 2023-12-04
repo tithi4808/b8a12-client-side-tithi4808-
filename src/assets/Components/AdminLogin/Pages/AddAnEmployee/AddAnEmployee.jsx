@@ -6,7 +6,7 @@ const AddAnEmployee = () => {
     const [selectedUsers, setSelectedUsers] = useState([]);
 
     useEffect(() => {
-       fetch("http://localhost:5000/allemployees")
+       fetch("https://b8a12-server-side-tithi4808.vercel.app/allemployees")
        .then(res => res.json())
        .then(data => setUsers(data))
     }, []);
@@ -26,7 +26,7 @@ const AddAnEmployee = () => {
         
         
 
-        fetch("http://localhost:5000/fullteams", {
+        fetch("https://b8a12-server-side-tithi4808.vercel.app/fullteams", {
                method: "POST",
                 headers: {
                     "Content-Type": "application/json",
